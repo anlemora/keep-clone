@@ -9,4 +9,3 @@ urlpatterns = [
 	url(r'^notes/(?P<pk>[\w\-\W]+)/$', note_detailview.as_view(), name='note_detail'),
 
 ]
-
