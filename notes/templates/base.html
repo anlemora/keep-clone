@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Keep</title>
+</head>
+<body>
+	<header>
+		{% if request.path == '/notes/new/' %}
+		<a id="note-new" href="/notes/">Notes</a>
+		{% elif request.path == '/notes/' %}
+		<a id="note-new" href="/notes/new/">New Note</a>
+		{% else %}
+		<a id="note-new" href="/notes/new/">New Note</a>
+		<a id="note-new" href="/notes/">Notes</a>
+		{% endif %}
+	</header>
+	<div class="content-holder">
+		{% block content %}
+		{% endblock content %}
+	</div>
+</body>
+</html>
