@@ -3,5 +3,4 @@ media/
 
 *.pyc
 
-#database
 db.sqlite3
