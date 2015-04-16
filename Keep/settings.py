@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'material.admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'material',
     'notes',
 )
 
@@ -97,12 +99,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR, "static"),
+)
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
-STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
+TEMPLATE_DIRS=(
+    os.path.join(BASE_DIR, "templates"),
+)

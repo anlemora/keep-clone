@@ -3,8 +3,8 @@
 	{% for n in object_list %}
 	<a href="/notes/{{n.id}}">
 		<div class="note note-{{n.color}}">
-			<h2 class="title"> {{ n.title }} </h2>
-			<p class="contenido"> {{ n.content }} </p>
+			<h4 class="title"> {{ n.title }} </h4>
+			<h5 class="contenido"> {{ n.content }} </h5>
 		</div>
 	</a>
 	{% endfor %}
