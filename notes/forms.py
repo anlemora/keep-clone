@@ -9,4 +9,4 @@ class note_creation_form(forms.ModelForm):
 
 	class Meta:
 		model = Note
-		fields = ('title', 'content')
+		fields = ('title', 'content', 'color')

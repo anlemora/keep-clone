@@ -2,7 +2,7 @@
 {% block content %}
 	{% for n in object_list %}
 	<a href="/notes/{{n.id}}">
-		<div class="nota">
+		<div class="note note-{{n.color}}">
 			<h2 class="title"> {{ n.title }} </h2>
 			<p class="contenido"> {{ n.content }} </p>
 		</div>
