@@ -1,0 +1,42 @@
+a.list-note {
+	color: #000000;
+}
+
+body {
+	background-color: #F7F7F7;
+}
+
+div.content-holder {
+	padding: 0 30px 0 30px;
+}
+
+div.note {
+	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+	border-radius: 5px;
+	max-height: 350px;
+	width: 25%;
+	display: inline-block;
+	float: left;
+	padding: 15px;
+	margin: 15px;
+}
+
+div.note p.content {
+	font-size: 25px;
+}
+
+div.note-R{background-color: #F44336;}
+div.note-B{background-color: #2196F3;}
+div.note-O{background-color: #FF9800;}
+div.note-Y{background-color: #FFEB3B;}
+div.note-G{background-color: #9E9E9E;}
+div.note-W{background-color: #FFFFFF;}
+
+.form-container {
+	margin: 50px 20% 0% 20%;
+}
+
+header {
+	background-color: #009688;
+	padding: 20px 20px 10px 20px;
+}
