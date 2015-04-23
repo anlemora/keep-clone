@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 	{% for n in object_list %}
-	<a href="/notes/{{n.id}}">
+	<a href="/{{n.id}}" class="list-note">
 		<div class="note note-{{n.color}}">
-			<h4 class="title"> {{ n.title }} </h4>
-			<h5 class="contenido"> {{ n.content }} </h5>
+			<p class="title"> {{ n.title }} </p>
+			<p class="content"> {{ n.content }} </p>
 		</div>
 	</a>
 	{% endfor %}

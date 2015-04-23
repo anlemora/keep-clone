@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -31,7 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'material.admin',
+    # 'material.admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,21 +54,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'Keep.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = 'Keep.wsgi.application'
 
@@ -99,13 +83,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR, "static"),
-)
-
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS=(
     os.path.join(BASE_DIR, "templates"),
+)
+
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR, "static"),
 )
