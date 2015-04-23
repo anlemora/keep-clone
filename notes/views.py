@@ -5,17 +5,37 @@ from django.views.generic import FormView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from .forms import note_creation_form
 from .models import Note
 
-from .forms import note_creation_form
+
+class Note_ListView(ListView):
+	model = Note
+	template_name = 'notes/notes.html'
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		
+		return super(Note_ListView, self).dispatch(*args, **kwargs)
+
+	def get_context_data(self, **kwargs):
+		context = super(Note_ListView, self).get_context_data(**kwargs)
+
+		context.update({'notes': self.get_notes()})
+
+		return context
+
+	def get_notes(self):
+		user = self.request.user
+		notes = Note.objects.filter(user=user)
+		return notes
 
 
-
-class note_createview(FormView):
+class Note_CreateView(FormView):
 
 	model = Note
 	form_class  = note_creation_form
-	success_url = ''
+	success_url = '/notes/'
 	template_name = 'notes/create_note.html'
 
 	def form_valid(self, form):
@@ -24,30 +44,10 @@ class note_createview(FormView):
 		form.user = user
 		form.save()
 
-		return super(note_createview, self).form_valid(form)
+		return super(Note_CreateView, self).form_valid(form)
 
 
-class note_listview(ListView):
-	model = Note
-	template_name = 'notes/notes.html'
 
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		
-		return super(note_listview, self).dispatch(*args, **kwargs)
-
-	def get_context_data(self, **kwargs):
-		context = super(note_listview, self).get_context_data(**kwargs)
-
-		context.update({'notes': self.get_notes()})
-
-		return context
-
-	def get_notes(self):
-		user = self.request.user
-		notes = Note.objects.filter(user==user)
-		return notes
-
-class note_detailview(DetailView):
+class Note_DetailView(DetailView):
 	model = Note
 	template_name = 'notes/note_detail.html'
