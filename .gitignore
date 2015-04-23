@@ -1,1 +1,6 @@
+static/
+media/
+
 *.pyc
+
+db.sqlite3

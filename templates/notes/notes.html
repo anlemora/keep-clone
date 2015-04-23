@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+	{% for n in object_list %}
+	<a href="/{{n.id}}" class="list-note">
+		<div class="note note-{{n.color}}">
+			<p class="title"> {{ n.title }} </p>
+			<p class="content"> {{ n.content }} </p>
+		</div>
+	</a>
+	{% endfor %}
+{% endblock content %}
