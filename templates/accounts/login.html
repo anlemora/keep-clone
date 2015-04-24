@@ -1,0 +1,15 @@
+{% extends "bases/acc_base.html" %}
+{% block content %}
+  <div class="form-container">
+  <div class="card">
+    {% load material_form %}
+      <form method="POST" class="viewform">{% csrf_token %}
+      {% form %}
+        {% part form.username prefix %}<i class="mdi-action-account-box prefix"></i>{% endpart %}
+        {% part form.password prefix %}<i class="mdi-action-lock-open prefix"></i>{% endpart %}
+    {% endform %}
+    <button type="submit" name="_submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+    </div>
+    </div>
+{% endblock content %}

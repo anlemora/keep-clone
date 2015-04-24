@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	{% include 'material/includes/material_css.html' %}
+    {% include 'material/includes/material_js.html' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<meta charset="UTF-8">
+	<title>Keep</title>
+</head>
+<body>
+	<header>
+		Welcome to keep, your work, your place.
+	</header>
+	<div class="content-holder">
+		{% block content %}
+		{% endblock content %}
+	</div>
+</body>
+</html>

@@ -33,7 +33,12 @@ div.note-G{background-color: #9E9E9E;}
 div.note-W{background-color: #FFFFFF;}
 
 .form-container {
-	margin: 50px 20% 0% 20%;
+	margin: 50px 30% 0% 30%;
+	min-width: 350px;
+}
+
+.card .clearfix{
+	padding: 10px 50px 10px 50px;
 }
 
 header {

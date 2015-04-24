@@ -4,13 +4,13 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.views.generic.edit import FormView
 
 class LoginView(FormView):
 	form_class = AuthenticationForm
 	template_name = 'accounts/login.html'
-	success_url = '/contactos/'
+	success_url = '/notes/'
 
 	def form_valid(self, form):
 		username = form.cleaned_data['username']
@@ -28,14 +28,12 @@ class LoginView(FormView):
 			return super(LoginView, self).dispatch(request, *args, **kwargs)
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('accounts:login'))
-    else:
-        form = UserCreationForm()
-    return render(
-        request, 'accounts/register.html', {'form': form}
-    )
+from django.contrib.auth.models import User
+from .forms import RegistrationForm
+# from django.contrib.auth.forms import UserCreationForm
+
+class SignupView(FormView):
+	model = User
+	form_class = RegistrationForm
+	template_name = 'accounts/signup.html'
+	success_url = '/notes/'

@@ -12,6 +12,7 @@
 	<header>
 		<a id="note-new" class="btn" href="/notes/">Notes</a>
 		<a id="note-new" class="btn" href="/notes/new/">New Note</a>
+		<p>{{ self.request.user }}</p>
 	</header>
 	<div class="content-holder">
 		{% block content %}
